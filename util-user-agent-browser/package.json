@@ -1,9 +1,9 @@
 {
-  "name": "@aws-sdk/util-locate-window",
-  "version": "3.723.0",
+  "name": "@aws-sdk/util-user-agent-browser",
+  "version": "3.734.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "node ../../scripts/compilation/inline util-locate-window",
+    "build:cjs": "node ../../scripts/compilation/inline util-user-agent-browser",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -12,27 +12,28 @@
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "browser": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
+  "react-native": "dist-es/index.native.js",
   "dependencies": {
+    "@aws-sdk/types": "3.734.0",
+    "@smithy/types": "^4.1.0",
+    "bowser": "^2.11.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typescript": "~5.2.2"
-  },
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
-  "engines": {
-    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -44,10 +45,10 @@
   "files": [
     "dist-*/**"
   ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-locate-window",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-user-agent-browser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-locate-window"
+    "directory": "packages/util-user-agent-browser"
   }
 }
